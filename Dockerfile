@@ -1,5 +1,5 @@
-FROM alpine:edge
-MAINTAINER Jonathan Baker <chessracer@gmail.com>
+FROM alpine:3.3
+MAINTAINER Daniel McCoy <danielmccoy@gmail.com>
 
 RUN apk --update add \
   nginx \
@@ -14,6 +14,7 @@ RUN apk --update add \
   php-pdo_sqlite \
   php-ctype \
   php-zlib \
+  php-xml \
   curl \
   php-curl \
   supervisor
@@ -30,7 +31,7 @@ VOLUME ["/var/www", "/etc/nginx/sites-enabled"]
 
 ADD nginx-supervisor.ini /etc/supervisor.d/nginx-supervisor.ini
 ENV TIMEZONE America/Los_Angeles
- 
+
 RUN ln -sf /dev/stderr /var/log/nginx/error.log
 RUN ln -sf /dev/stdout /var/log/nginx/access.log
 
