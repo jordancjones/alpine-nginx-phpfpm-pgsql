@@ -17,7 +17,7 @@ RUN apk --update add \
   php-xml \
   curl \
   php-curl \
-	php-zip \
+  php-zip \
   supervisor
 
 RUN mkdir -p /etc/nginx
