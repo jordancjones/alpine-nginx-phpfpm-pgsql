@@ -29,6 +29,9 @@ RUN mkdir -p /var/log/supervisor
 RUN rm /etc/nginx/nginx.conf
 ADD nginx.conf /etc/nginx/nginx.conf
 
+RUN rm /etc/php/php-fpm.conf
+ADD php-fpm.conf /etc/php/php-fpm.conf
+
 VOLUME ["/var/www", "/etc/nginx/sites-enabled"]
 
 ADD nginx-supervisor.ini /etc/supervisor.d/nginx-supervisor.ini
