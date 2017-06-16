@@ -1,4 +1,4 @@
-FROM alpine:3.3
+FROM alpine:3.4
 MAINTAINER Daniel McCoy <danielmccoy@gmail.com>
 
 RUN apk --update add \
@@ -17,9 +17,14 @@ RUN apk --update add \
   php-xml \
   php-gd \
   curl \
+  py-pip \
   php-curl \
   php-zip \
   supervisor
+
+# Configure supervisor
+RUN pip install --upgrade pip && \
+    pip install supervisor-stdout
 
 RUN mkdir -p /etc/nginx
 RUN mkdir -p /run/nginx
