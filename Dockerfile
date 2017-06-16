@@ -17,9 +17,14 @@ RUN apk --update add \
   php-xml \
   php-gd \
   curl \
+  py-pip \
   php-curl \
   php-zip \
   supervisor
+
+# Configure supervisor
+RUN pip install --upgrade pip && \
+    pip install supervisor-stdout
 
 RUN mkdir -p /etc/nginx
 RUN mkdir -p /run/nginx
