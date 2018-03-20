@@ -1,5 +1,5 @@
 FROM alpine:3.6
-MAINTAINER Daniel McCoy <danielmccoy@gmail.com>
+MAINTAINER Jordan Jones <jordancjones@gmail.com>
 
 RUN apk --update add \
   nginx \
